@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+const GRAVITY = 25
+const JUMP_FORCE := 400
+
 var velocity = Vector2.ZERO
 onready var move_speed : float = 175 * scale.x
 
@@ -7,11 +10,9 @@ onready var move_speed : float = 175 * scale.x
 func _physics_process(_delta):
     var move_left = Input.get_action_strength("ui_left")
     var move_right = Input.get_action_strength("ui_right")
+    
     velocity.x = (move_right - move_left) * move_speed
-
-    var move_up = Input.get_action_strength("ui_up")
-    var move_down = Input.get_action_strength("ui_down")
-    velocity.y = (move_down - move_up) * move_speed
+    velocity.y += GRAVITY
 
     velocity = move_and_slide(velocity, Vector2.UP)
 
@@ -29,3 +30,7 @@ func _physics_process(_delta):
     else:
       $AnimatedSprite.play("idle")
 
+func _input(event):
+  if event.is_action_pressed("ui_accept") and is_on_floor():
+    velocity.y -= JUMP_FORCE
+    
