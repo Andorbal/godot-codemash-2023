@@ -15,3 +15,17 @@ func _physics_process(_delta):
 
     velocity = move_and_slide(velocity, Vector2.UP)
 
+    if move_left > 0:
+      $AnimatedSprite.flip_h = true
+    elif move_right > 0:
+      $AnimatedSprite.flip_h = false
+
+    if velocity.y > 0:
+      $AnimatedSprite.play("jump")
+    elif velocity.y < 0:
+      $AnimatedSprite.play("fall")
+    elif velocity.x != 0:
+      $AnimatedSprite.play("run")
+    else:
+      $AnimatedSprite.play("idle")
+
