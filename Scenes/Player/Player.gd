@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal fruit_collected
+
 const GRAVITY = 25
 const JUMP_FORCE := 400
 
@@ -62,3 +64,4 @@ func collect_fruit(fruit:String) -> void:
   if not collected_fruit.has(fruit):
     collected_fruit[fruit] = 0
   collected_fruit[fruit] += 1
+  emit_signal("fruit_collected", collected_fruit)
