@@ -8,6 +8,8 @@ var velocity = Vector2.ZERO
 onready var move_speed : float = 175 * scale.x
 onready var start_position = global_position
 
+var collected_fruit := {}
+
 # Called when the node enters the scene tree for the first time.
 func _physics_process(_delta):
     var move_left = Input.get_action_strength("ui_left")
@@ -55,3 +57,8 @@ func respawn():
     global_position = respawn_checkpoint_node_ref.global_position
   else:
     global_position = start_position
+
+func collect_fruit(fruit:String) -> void:
+  if not collected_fruit.has(fruit):
+    collected_fruit[fruit] = 0
+  collected_fruit[fruit] += 1

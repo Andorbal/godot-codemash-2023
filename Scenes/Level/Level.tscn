@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Level/Ground.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Art/Background/Blue.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Checkpoint/Checkpoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Spikes/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Fruit/Fruit.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D"]
 
@@ -53,6 +54,63 @@ position = Vector2( 800, 752 )
 
 [node name="Spikes5" parent="Hazards" instance=ExtResource( 6 )]
 position = Vector2( 328, 160 )
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Fruit" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 256, 96 )
+
+[node name="Fruit2" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 344, 144 )
+fruit = "Strawberry"
+
+[node name="Fruit3" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 544, 176 )
+fruit = "Strawberry"
+
+[node name="Fruit4" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 568, 176 )
+
+[node name="Fruit5" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 544, 200 )
+
+[node name="Fruit6" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 568, 200 )
+fruit = "Strawberry"
+
+[node name="Fruit8" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 976, 32 )
+fruit = "Strawberry"
+
+[node name="Fruit9" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 1000, 32 )
+
+[node name="Fruit10" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 976, 56 )
+
+[node name="Fruit11" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 1000, 56 )
+fruit = "Strawberry"
+
+[node name="Fruit7" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 936, 128 )
+fruit = "Strawberry"
+
+[node name="Fruit12" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 936, 152 )
+fruit = "Strawberry"
+
+[node name="Fruit13" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 936, 176 )
+fruit = "Strawberry"
+
+[node name="Fruit14" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 936, 200 )
+fruit = "Strawberry"
+
+[node name="Fruit15" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 936, 224 )
+fruit = "Strawberry"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 48, 96 )
