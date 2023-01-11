@@ -10,7 +10,7 @@ onready var move_speed : float = 175 * scale.x
 func _physics_process(_delta):
     var move_left = Input.get_action_strength("ui_left")
     var move_right = Input.get_action_strength("ui_right")
-    
+
     velocity.x = (move_right - move_left) * move_speed
     velocity.y += GRAVITY
 
@@ -33,4 +33,5 @@ func _physics_process(_delta):
 func _input(event):
   if event.is_action_pressed("ui_accept") and is_on_floor():
     velocity.y -= JUMP_FORCE
+    $JumpSound.play()
     

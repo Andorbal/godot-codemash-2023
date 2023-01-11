@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Audio/jdwasabi_Sounds/Jump 1.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/Player/SpriteFrames.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -16,5 +17,8 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 8
+frame = 5
 playing = true
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
