@@ -3,6 +3,7 @@ extends KinematicBody2D
 const GRAVITY = 25
 const JUMP_FORCE := 400
 
+var respawn_checkpoint_node_ref : Node2D
 var velocity = Vector2.ZERO
 onready var move_speed : float = 175 * scale.x
 
@@ -35,3 +36,12 @@ func _input(event):
     velocity.y -= JUMP_FORCE
     $JumpSound.play()
     
+func update_checkpoint(new_checkpoint : Node2D):
+  if respawn_checkpoint_node_ref == new_checkpoint:
+    return
+  
+  if respawn_checkpoint_node_ref != null:
+    respawn_checkpoint_node_ref.set_active(false)
+
+  respawn_checkpoint_node_ref = new_checkpoint
+  respawn_checkpoint_node_ref.set_active(true)
