@@ -71,3 +71,6 @@ func collect_fruit(fruit:String) -> void:
     collected_fruit[fruit] = 0
   collected_fruit[fruit] += 1
   emit_signal("fruit_collected", collected_fruit)
+
+func bounce() -> void:
+  velocity.y = -JUMP_FORCE

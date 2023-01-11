@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Level/Ground.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Fruit/Fruit.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/SnailEnemy/SnailEnemy.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 9 )
@@ -114,6 +115,14 @@ fruit = "Strawberry"
 [node name="Fruit15" parent="Collectibles" instance=ExtResource( 7 )]
 position = Vector2( 936, 224 )
 fruit = "Strawberry"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="SnailEnemy" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 544, 128 )
+
+[node name="SnailEnemy2" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 384, 160 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 48, 96 )
