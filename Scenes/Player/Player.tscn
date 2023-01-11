@@ -17,7 +17,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
 animation = "idle"
-frame = 5
+frame = 7
 playing = true
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
