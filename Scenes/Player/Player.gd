@@ -6,6 +6,7 @@ const JUMP_FORCE := 400
 var respawn_checkpoint_node_ref : Node2D
 var velocity = Vector2.ZERO
 onready var move_speed : float = 175 * scale.x
+onready var start_position = global_position
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(_delta):
@@ -45,3 +46,12 @@ func update_checkpoint(new_checkpoint : Node2D):
 
   respawn_checkpoint_node_ref = new_checkpoint
   respawn_checkpoint_node_ref.set_active(true)
+
+func take_spike_damage() -> void:
+  respawn()
+
+func respawn():
+  if respawn_checkpoint_node_ref != null:
+    global_position = respawn_checkpoint_node_ref.global_position
+  else:
+    global_position = start_position
