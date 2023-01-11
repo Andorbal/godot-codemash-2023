@@ -21,6 +21,9 @@ func _physics_process(_delta):
     velocity.y += GRAVITY
 
     velocity = move_and_slide(velocity, Vector2.UP)
+    for i in get_slide_count():
+      if get_slide_collision(i).collider.name.begins_with("SnailEnemy"):
+        take_enemy_damage()
 
     if move_left > 0:
       $AnimatedSprite.flip_h = true
@@ -50,6 +53,9 @@ func update_checkpoint(new_checkpoint : Node2D):
 
   respawn_checkpoint_node_ref = new_checkpoint
   respawn_checkpoint_node_ref.set_active(true)
+
+func take_enemy_damage() -> void:
+  respawn()
 
 func take_spike_damage() -> void:
   respawn()
