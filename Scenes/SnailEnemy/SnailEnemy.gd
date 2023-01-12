@@ -16,7 +16,6 @@ func _physics_process(_delta):
   if is_alive and velocity.x != 0: $AnimatedSprite.play("walk")
   var on_wall_or_ledge = is_on_wall() or not $RayCast2D.is_colliding()
   if is_alive and on_wall_or_ledge:
-    print("SHOULD TURN AROUND!!")
     turn_around()
 
 func turn_around():
@@ -28,8 +27,6 @@ func _on_HitArea2D_body_entered(body):
     body.take_enemy_damage()
 
 func _on_ShellArea2D_body_entered(body):
-  print(body.name)
-
   if is_alive:
     is_alive = false
   
