@@ -21,3 +21,7 @@ func update_labels():
   for fruit_value in fruit_totals.values():
     var fruit_label = "%d/%d" % [fruit_value.current, fruit_value.total]
     fruit_value.labelNode.text = fruit_label
+
+
+func _on_BackButton_pressed():
+  get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
